@@ -12,7 +12,7 @@ const nextConfig = {
   // distDir: 'dist',
   
   // Add basePath
-  basePath: '/Restourant/',
+  basePath: '/Restourant',
 
   images: {
     domains: ['https://yobel47.github.io/Restourant/']
