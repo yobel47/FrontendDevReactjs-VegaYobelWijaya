@@ -11,7 +11,7 @@ const nextConfig = {
   // Optional: Change the output directory `out` -> `dist`
   // distDir: 'dist',
   // Add basePath
-  basePath: '/restourant',
+  basePath: 'https://yobel47.github.io/Restourant/',
 }
 
 module.exports = nextConfig
