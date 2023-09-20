@@ -15,7 +15,14 @@ const nextConfig = {
   basePath: '/Restourant',
 
   images: {
-    domains: ['https://yobel47.github.io/Restourant/']
+   remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'yobel47.github.io',
+        port: '',
+        pathname: '/Restourant/**',
+      },
+    ],
   }
 }
 
