@@ -1,3 +1,5 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
+
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -171,16 +173,16 @@ const Detail: NextPage = () => {
                                 <div className="w-1/2">
                                     <div className="text-base font-semibold">Foods :</div>
                                     <ul>
-                                        {data?.restaurant.menus.foods.map((item) => {
-                                            return (<li>{item.name}</li>)
+                                        {data?.restaurant.menus.foods.map((item, index) => {
+                                            return (<li key={index}>{item.name}</li>)
                                         })}
                                     </ul>
                                 </div>
                                 <div className="w-1/2">
                                     <div className="text-base font-semibold">Drinks :</div>
                                     <ul>
-                                        {data?.restaurant.menus.drinks.map((item) => {
-                                            return (<li>{item.name}</li>)
+                                        {data?.restaurant.menus.drinks.map((item, index) => {
+                                            return (<li key={index}> {item.name}</li>)
                                         })}
                                     </ul>
                                 </div>
@@ -221,7 +223,7 @@ const Detail: NextPage = () => {
                     reset()
                 }} />
 
-        </main>
+        </main >
     );
 };
 
