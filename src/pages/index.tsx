@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MapPin, Star, Search } from "react-feather";
 import { debounce } from "lodash"
 import { useRouter } from 'next/router'
+import Head from "next/head";
 
 type ListType = {
     error: boolean;
@@ -119,6 +120,9 @@ const Home: NextPage = () => {
 
     return (
         <main className="container mx-auto px-4">
+            <Head>
+                <title>Restourant</title>
+            </Head>
             <div className="mt-8 md:mt-8 mb-10">
                 <div className="text-4xl font-bold">Restourant</div>
                 <div className="mt-4 max-w-2xl">

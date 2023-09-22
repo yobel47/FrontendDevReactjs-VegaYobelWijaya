@@ -6,9 +6,10 @@ import Image from "next/image";
 import { MapPin, Filter, Star, Check, X } from "react-feather";
 import { useRouter } from 'next/router'
 import Modal from "@/components/modal";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 type ListType = {
     error: boolean;
@@ -130,6 +131,9 @@ const Detail: NextPage = () => {
 
     return (
         <main className="container mx-auto px-4 mt-8 md:mt-8 mb-10">
+            <Head>
+                <title>{data?.restaurant ? data?.restaurant.name : data?.message}</title>
+            </Head>
             {!isLoading && (data?.error) && (
                 <div className="font-semibold text-2xl text-center my-16">{data?.message}</div>
             )}
