@@ -18,7 +18,7 @@ const nextConfig = {
 
   images: {
     loader: "custom",
-    domains: ["restaurant-api.dicoding.dev/images/large"],
+    domains: ["restaurant-api.dicoding.dev"],
     remotePatterns: [
       {
         protocol: "https",

@@ -179,7 +179,7 @@ const Home: NextPage = () => {
                         <div className="my-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             {dataRestaurants?.map((item: any) => (
                                 <div key={item.id} className="p-5 border-2 border-black">
-                                    <Image src={item.pictureId} className="relative w-full h-[170px]" loader={imageLoader} alt={item.name}
+                                    <Image src={process.env.production ? `https://restaurant-api.dicoding.dev/images/large/${src}` : item.pictureId} className="relative w-full h-[170px]" loader={imageLoader} alt={item.name}
                                         width={0}
                                         height={0}
                                         sizes="100vw" />
