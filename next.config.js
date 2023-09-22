@@ -19,25 +19,6 @@ const nextConfig = {
   images: {
     loader: "custom",
   },
-
-  // images: {
-  //   domains: ["restaurant-api.dicoding.dev/images/large"],
-  //   remotePatterns: [
-  //     {
-  //       protocol: "https",
-  //       hostname: "restaurant-api.dicoding.dev",
-  //       port: "",
-  //       pathname: "/images/large/**",
-  //     },
-  //   ],
-  // },
-  // https://restaurant-api.dicoding.dev/images/large/1
-  exportPathMap: async function () {
-    return {
-      // "/tes": { page: "/" },
-      // "/login": { page: "/auth/login" },
-    };
-  },
 };
 
 module.exports = nextConfig;
