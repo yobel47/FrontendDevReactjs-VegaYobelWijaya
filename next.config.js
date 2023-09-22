@@ -14,7 +14,7 @@ const nextConfig = {
   // distDir: 'dist',
 
   // Add basePath
-  basePath: env.production && "/Restourant",
+  basePath: env.production && "/FrontendDevReactjs-VegaYobelWijaya",
 
   images: {
     unoptimized: true,
