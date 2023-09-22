@@ -193,9 +193,9 @@ const Detail: NextPage = () => {
                         <button onClick={() => { setVisible(true) }} className="transition ease-in-out border-[3px] border-black hover:bg-black w-32 hover:text-white text-lg font-bold py-2">Add review</button>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                        {data?.restaurant.customerReviews.map((item) => {
+                        {data?.restaurant.customerReviews.map((item, index) => {
                             return (
-                                <div className="border-2 border-black p-4">
+                                <div className="border-2 border-black p-4" key={index}>
                                     <div className="flex justify-between items-center">
                                         <div className="text-lg font-bold">{item.name}
                                         </div>
