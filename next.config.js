@@ -17,16 +17,7 @@ const nextConfig = {
   basePath: env.production && "/Restourant",
 
   images: {
-    loader: "custom",
-    domains: ["restaurant-api.dicoding.dev"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "restaurant-api.dicoding.dev",
-        port: "",
-        pathname: "/images/large/**",
-      },
-    ],
+    unoptimized: true,
   },
   // https://restaurant-api.dicoding.dev/images/large/1
 };

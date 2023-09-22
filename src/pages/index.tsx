@@ -30,7 +30,6 @@ const Home: NextPage = () => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     const router = useRouter()
-    const imageLoader = require("../components/loader");
 
     useEffect(() => {
         fetch("https://restaurant-api.dicoding.dev/list")
@@ -179,10 +178,11 @@ const Home: NextPage = () => {
                         <div className="my-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             {dataRestaurants?.map((item: any) => (
                                 <div key={item.id} className="p-5 border-2 border-black">
-                                    <Image src={`https://restaurant-api.dicoding.dev/images/large/${item.pictureId}`} className="relative w-full h-[170px]" loader={imageLoader} alt={item.name}
+                                    <Image src={`https://restaurant-api.dicoding.dev/images/large/${item.pictureId}`} className="relative w-full h-[170px]" alt={item.name}
                                         width={0}
                                         height={0}
-                                        sizes="100vw" />
+                                        sizes="100vw"
+                                        priority />
                                     <div>
                                         <div className="text-xl font-semibold break-words mt-2">{item.name}</div>
                                         <div className="flex mt-1 justify-between">

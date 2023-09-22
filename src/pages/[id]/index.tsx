@@ -53,7 +53,6 @@ interface ReviewsType {
 const Detail: NextPage = () => {
     const [data, setData] = useState<ListType | null>(null);
     const [visible, setVisible] = useState(false);
-    const imageLoader = require("../../components/loader");
     const [isLoading, setLoading] = useState(true);
     const router = useRouter()
     const id = router.query.id
@@ -143,7 +142,7 @@ const Detail: NextPage = () => {
                 <>
                     <div className="flex flex-col md:flex-row gap-6">
                         <div className="w-full md:w-1/2 border-[10px] border-black h-fit">
-                            <Image src={"14"} className="relative w-full h-auto" loader={imageLoader} alt={"tes"}
+                            <Image src={`https://restaurant-api.dicoding.dev/images/large/${data?.restaurant.pictureId}`} className="relative w-full h-auto" alt={"tes"}
                                 width={0}
                                 height={0}
                                 sizes="100vw"
