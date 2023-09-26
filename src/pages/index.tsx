@@ -32,6 +32,10 @@ const Home: NextPage = () => {
     const router = useRouter()
 
     useEffect(() => {
+        loadData()
+    }, []);
+
+    const loadData = () => {
         fetch("https://restaurant-api.dicoding.dev/list")
             .then((res) => res.json())
             .then((data) => {
@@ -43,7 +47,7 @@ const Home: NextPage = () => {
                 setData({ error: true, message: "Server Error", count: 0, restaurants: [] })
                 setLoading(false);
             })
-    }, []);
+    }
 
     const Loading = () => {
         return (
@@ -105,16 +109,26 @@ const Home: NextPage = () => {
 
     const onFilter = (index: number) => {
         setLoading(true);
+        setDataRestaurants(null)
+        setData(null)
         setRating(index)
         const fakeFetchData = async () => {
-            const filteredArray = data?.restaurants?.filter((item) => {
-                return item.rating <= index;
-            })
-            setDataRestaurants(filteredArray || null)
-            setLoading(false)
+            fetch("https://restaurant-api.dicoding.dev/list")
+                .then((res) => res.json())
+                .then((data) => {
+                    const filteredArray = data?.restaurants?.filter((item: any) => {
+                        return item.rating <= index;
+                    })
+                    setData({ error: data.error, message: data?.message, count: filteredArray.length, restaurants: filteredArray });
+                    setDataRestaurants(filteredArray.slice(0, 8))
+                    setLoading(false);
+                })
+                .catch((e) => {
+                    setData({ error: true, message: "Server Error", count: 0, restaurants: [] })
+                    setLoading(false);
+                })
         }
         setTimeout(fakeFetchData, 2000)
-
     }
 
     return (
@@ -203,7 +217,7 @@ const Home: NextPage = () => {
                                 </div>
                             ))}
                         </div>
-                        {!isLoading && ((dataRestaurants?.length || 0) !== data?.restaurants.length) &&
+                        {!isLoading && (dataRestaurants?.length !== data?.restaurants.length) &&
                             <div className="flex justify-center">
                                 <button onClick={addMoreData} className="transition ease-in-out border-[3px] border-black bg-black hover:bg-white w-1/2 mt-4 text-white hover:text-black text-lg font-bold py-2">See More</button>
                             </div>
